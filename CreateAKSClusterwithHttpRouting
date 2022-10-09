@@ -1,0 +1,24 @@
+# Create Azure Resource group to host our test AKS Cluster
+az group create --name testakscluster --location southcentralus
+
+#Create AKS Cluster and enable http_application_routing
+az aks create -g testakscluster -n myakscluster --enable-addons http_application_routing  --generate-ssh-keys
+
+#capture the value and its required for configuring the routing.
+az aks show -g testakscluster -n myakscluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+
+az aks get-credentials -g testakscluster -n myakscluster
+
+# Download the  Kubernetes manifest file
+git clone  https://github.com/krishnacloud123/k8-samples.git 
+
+kubectl apply -f ./deploy-app-routing.yml
+
+Kubectl get deploy,svc,ing
+
+#Cleanup the deployment
+kubectl delete -f samples-http-application-routing.yaml
+
+# Clean up the resources to stop unnessary charges
+az group delete --name testakscluster --yes --no-wait
