@@ -1,4 +1,4 @@
-# k8-samples
+# AKS Sample code
 K8 Samples
 
 
