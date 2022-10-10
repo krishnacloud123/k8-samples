@@ -1,4 +1,4 @@
-#Test  AKS cluster to demo  AZ Support and Public Load balancer.
+#Test  AKS cluster to demo  AZ Support and  Ingress with Public IP
 
 #1. Log to Azure Subscription
 az login
