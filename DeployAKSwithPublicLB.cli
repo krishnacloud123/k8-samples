@@ -1,0 +1,28 @@
+#Deploy cluster with AZ Support
+#Create a resource group for this demo
+az group create --name aks-az --location centralus
+
+
+#1 - Create an AZ Aware AKS Cluster with a node in each zone.
+az aks create --resource-group aks-az --name aks-az --generate-ssh-keys --node-count 3 --zones 1 2 3
+
+
+#2 Enable kubeconfig to log into the cluster
+az aks get-credentials --resource-group aks-az --name aks-az
+
+
+#Examine the labels associated with the nodes, will tell you the topology of the cluster
+kubectl get nodes -L topology.kubernetes.io/region,topology.kubernetes.io/zone
+
+
+#3. Create a Hello world workload
+kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0  -- replicas = 3
+
+#4. Create a workload in centralus - Helloworld application with Load balancer to expose outside
+kubectl create deployment hello-world-loadbalancer-centralus --image=gcr.io/google-samples/hello-app:1.0 -- replicas=3
+
+#5. Expose it using a LoadBalancer with Port 8080
+kubectl expose deployment hello-world-loadbalancer-centralus   --port=80 --target-port=8080 --type LoadBalancer
+
+
+
