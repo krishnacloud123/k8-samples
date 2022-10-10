@@ -6,4 +6,4 @@ K8 Samples
 https://github.com/krishnacloud123/k8-samples/blob/main/CreateAKSClusterwithHttpRouting
 
 ## Create AKS clusters in 3 Zones with ingress with PublicIP
-https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithIngresswithPublicIP.clicli
+https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithIngresswithPublicIP.cli
