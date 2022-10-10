@@ -5,5 +5,5 @@ K8 Samples
 ## CreateAKSClusterwithHttpRouting - Script to create AKS cluster with a public ingress controller 
 https://github.com/krishnacloud123/k8-samples/blob/main/CreateAKSClusterwithHttpRouting
 
-## Create AKS clusters in 3 Zones with ingress
+## Create AKS clusters in 3 Zones with ingress controller
 https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithPublicLB.cli
