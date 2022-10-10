@@ -24,5 +24,7 @@ kubectl create deployment hello-world-loadbalancer-centralus --image=gcr.io/goog
 #5. Expose it using a LoadBalancer with Port 8080
 kubectl expose deployment hello-world-loadbalancer-centralus   --port=80 --target-port=8080 --type LoadBalancer
 
+#Clean after testing to reduce cost
+#az group delete --name aks-az
 
 
