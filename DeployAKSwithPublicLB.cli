@@ -1,35 +1,32 @@
 #Test  AKS cluster to demo  AZ Support and Public Load balancer.
-#Create a resource group for this demo
+
+#1. Create a resource group for this demo
 az group create --name aks-cloud-school-az --location centralus
 
-
-#1 - Create an AZ Aware AKS Cluster with a node in each zone.
+#2. Create an AZ Aware AKS Cluster with a node in each zone.
 az aks create --resource-group aks-cloud-school-az --name aks-cs-az --generate-ssh-keys --node-count 3 --zones 1 2 3
 
+#3. Enable kubeconfig to log into the cluster
+az aks get-credentials --resource-group aks-cloud-school-az --name aks-cs-az
 
-#2 Enable kubeconfig to log into the cluster
-az aks get-credentials --resource-group aks-cloud-school-az --name aks-az
-
-
-#Examine the labels associated with the nodes, will tell you the topology of the cluster
-kubectl get nodes -L topology.kubernetes.io/region,topology.kubernetes.io/zone
-
-#Set the context - its not necessary for the current demo - but sharing for learning.
+#4. Set the context - its not necessary for the current demo - but sharing for learning.
 kubectl config use-context aks-cs-az 
 
-#3. Create a Hello world workload
+#5. Examine the labels associated with the nodes, will tell you the topology of the cluster
+kubectl get nodes -L topology.kubernetes.io/region,topology.kubernetes.io/zone
+
+#6. Create a Hello world workload
 kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0  -- replicas = 3
 
-#4. Create a workload in centralus - Helloworld application with Load balancer to expose outside
+#7. Create a workload in centralus - Helloworld application with Load balancer to expose outside
 kubectl create deployment hello-world-loadbalancer-centralus --image=gcr.io/google-samples/hello-app:1.0 -- replicas=3
 
-#5. Expose it using a LoadBalancer with Port 8080
+#8. Expose it using a LoadBalancer with Port 8080
 kubectl expose deployment hello-world-loadbalancer-centralus   --port=80 --target-port=8080 --type LoadBalancer
 
+#9. Navigate to Azure portal
 
-#Navigate to Azure portal
-
-#Clean after testing to reduce cost
+#10. Clean after testing to reduce cost
 #az group delete --name aks-cloud-school-az
 
 
