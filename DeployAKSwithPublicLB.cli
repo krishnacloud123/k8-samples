@@ -1,32 +1,35 @@
 #Test  AKS cluster to demo  AZ Support and Public Load balancer.
 
-#1. Create a resource group for this demo
+#1. Log to Azure Subscription
+az login
+
+#2. Create a resource group for this demo
 az group create --name aks-cloud-school-az --location centralus
 
-#2. Create an AZ Aware AKS Cluster with a node in each zone.
+#3. Create an AZ Aware AKS Cluster with a node in each zone.
 az aks create --resource-group aks-cloud-school-az --name aks-cs-az --generate-ssh-keys --node-count 3 --zones 1 2 3
 
-#3. Enable kubeconfig to log into the cluster
+#4. Enable kubeconfig to log into the cluster
 az aks get-credentials --resource-group aks-cloud-school-az --name aks-cs-az
 
-#4. Set the context - its not necessary for the current demo - but sharing for learning.
+#5. Set the context - its not necessary for the current demo - but sharing for learning.
 kubectl config use-context aks-cs-az 
 
-#5. Examine the labels associated with the nodes, will tell you the topology of the cluster
+#6. Examine the labels associated with the nodes, will tell you the topology of the cluster
 kubectl get nodes -L topology.kubernetes.io/region,topology.kubernetes.io/zone
 
-#6. Create a Hello world workload
+#7. Create a Hello world workload
 kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0  -- replicas = 3
 
-#7. Create a workload in centralus - Helloworld application with Load balancer to expose outside
+#8. Create a workload in centralus - Helloworld application with Load balancer to expose outside
 kubectl create deployment hello-world-loadbalancer-centralus --image=gcr.io/google-samples/hello-app:1.0 -- replicas=3
 
-#8. Expose it using a LoadBalancer with Port 8080
+#9. Expose it using a LoadBalancer with Port 8080
 kubectl expose deployment hello-world-loadbalancer-centralus   --port=80 --target-port=8080 --type LoadBalancer
 
-#9. Navigate to Azure portal
+#10. Navigate to Azure portal
 
-#10. Clean after testing to reduce cost
+#11. Clean after testing to reduce cost
 #az group delete --name aks-cloud-school-az
 
 
