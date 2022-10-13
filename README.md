@@ -15,4 +15,4 @@ Deploy sample K8 application from google (https://github.com/GoogleCloudPlatform
 
 ## Hosting Wordpress on AKS with MySQL as backend using Persistent Volume.
 https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
-![image](https://user-images.githubusercontent.com/66212565/195665930-b895e0a1-9a43-449a-9978-7099ab43e7ee.png)
+![image](https://user-images.githubusercontent.com/66212565/195670447-1baa8c61-3c6a-4f05-85bb-712c79c12ee5.png)
