@@ -10,6 +10,7 @@ https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithIngresswith
 
 ## Hosting E-commerce application 
 Deploy sample K8 application from google (https://github.com/GoogleCloudPlatform/microservices-demo) on to AKS.
+https://github.com/krishnacloud123/k8-samples/blob/main/DeployEcommercePortal
 
 ![image](https://user-images.githubusercontent.com/66212565/195665185-0db4c0c3-f17f-4c55-8660-661f976bef56.png)
 
