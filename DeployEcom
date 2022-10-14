@@ -1,0 +1,2 @@
+#Deploy the AKS Cluster using the following script
+https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithIngresswithPublicIP.cli
