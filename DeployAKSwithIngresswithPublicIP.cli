@@ -27,9 +27,16 @@ kubectl create deployment hello-world-loadbalancer-centralus --image=gcr.io/goog
 #9. Expose it using a LoadBalancer with Port 8080
 kubectl expose deployment hello-world-loadbalancer-centralus   --port=80 --target-port=8080 --type LoadBalancer
 
-#10. Navigate to Azure portal
+#10. Navigate to Azure portal to get  the Public IP
+# Navigation -> Resource groups > aks-cloud-school-az > aks-cs-az > Service and ingresses 
+
+#Output in the website
+Hello, world!
+Version: 1.0.0
+Hostname: hello-world-loadbalancer-centralus-6dc6b576bd-qv759
 
 #11. Clean after testing to reduce cost
 #az group delete --name aks-cloud-school-az
+
 
 
