@@ -1,0 +1,3 @@
+Compressible and Non-Compressible resoruces 
+  The resources are categorized as compressible (i.e., can be throttled, such as CPU, or network bandwidth) and incompressible (i.e., cannot be throttled, such as memory).
+  Application architecture
