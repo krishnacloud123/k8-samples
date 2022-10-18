@@ -1,3 +1,19 @@
 Compressible and Non-Compressible resoruces 
   The resources are categorized as compressible (i.e., can be throttled, such as CPU, or network bandwidth) and incompressible (i.e., cannot be throttled, such as memory).
-  Application architecture
+  In the Application architecture -  we can minimum amount of resources that are needed (called requests) and the maximum amount it can grow up to (the limits).
+  In this example we can specific Requets and Limit
+      apiVersion: v1
+      kind: Pod
+      metadata:
+       name: random-generator
+      spec:
+       containers:
+       - image: testpatterns/learnk8-app:1.0
+       name: random-generator
+       resources:
+       requests: 
+       cpu: 100m
+       memory: 100Mi
+       limits: 
+       cpu: 200m
+       memory: 200Mi
