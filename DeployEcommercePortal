@@ -1,10 +1,16 @@
 # Step 1 - Deploy the AKS Cluster using the following script
 https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithIngresswithPublicIP.cli
 
-#Step 2 - Deploy sample K8 application from google (https://github.com/GoogleCloudPlatform/microservices-demo) on to AKS.
+# Step 2 - 
+git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
+
+# Step 3 - 
+cd microservices-demo
+
+#Step 3 - Deploy sample K8 application from google (https://github.com/GoogleCloudPlatform/microservices-demo) on to AKS.
 kubectl apply -f ./release/kubernetes-manifests.yaml
 
-#Step 3-  get the EXTERNAL-IP <your-ip> and type http://<External-ip>
+#Step 4-  get the EXTERNAL-IP <your-ip> and type http://<External-ip>
 kubectl get service frontend-external
 
 
