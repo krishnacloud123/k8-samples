@@ -1,10 +1,10 @@
-# Step 1 - Deploy the AKS Cluster using the following script
+#Step 1 - Deploy the AKS Cluster using the following script
 https://github.com/krishnacloud123/k8-samples/blob/main/DeployAKSwithIngresswithPublicIP.cli
 
-# Step 2 - 
+#Step 2 - 
 git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
 
-# Step 3 - 
+#Step 3 - 
 cd microservices-demo
 
 #Step 4 - Deploy sample K8 application from google (https://github.com/GoogleCloudPlatform/microservices-demo) on to AKS.
