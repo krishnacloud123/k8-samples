@@ -7,7 +7,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app:  nginx-test
+      app: nginx-test
       env: prod
   template:
     metadata:
